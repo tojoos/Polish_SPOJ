@@ -1,0 +1,30 @@
+Prawie jak Fibonacci, prawie... ID 37419
+
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] tab = new int[n];
+        int help1,help2,iter=0;
+        for(int i=0;i<n;i++)
+            tab[i] = scanner.nextInt();
+
+        help1=tab[0];
+        help2=tab[1];
+
+        for(int i=2;i<n;i++) {
+                if((help1+help2)==tab[i])
+                    iter++;
+
+                help1=help2;
+                help2=tab[i];
+        }
+
+        System.out.println(iter);
+
+    }
+}

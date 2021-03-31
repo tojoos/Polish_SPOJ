@@ -1,0 +1,30 @@
+Sort 1 ID 663
+
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        TreeMap <Float,String> map = new TreeMap<>();
+        int t = scanner.nextInt();
+        int n,x,y;
+        String pkt;
+        for(int i=0; i<t;i++) {
+            n = scanner.nextInt();
+            scanner.nextLine();
+            for(int j=0;j<n;j++) {
+                pkt = scanner.nextLine();
+                x = Integer.parseInt(pkt.substring(pkt.indexOf(" ")+1,pkt.lastIndexOf(" ")));
+                y= Integer.parseInt(pkt.substring(pkt.lastIndexOf(" ")+1));
+                map.put((float) Math.sqrt(x*x + y*y),pkt);
+            }
+            for(Float v : map.keySet()) {
+                System.out.println(map.get(v));
+            }
+            map.clear();
+        }
+
+    }
+}

@@ -1,0 +1,51 @@
+Zabawne Dodawanie Piotrusia ID 568
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int numb,iter=0,reversed;
+        for(int i=0;i<n;i++) {
+            numb = scanner.nextInt();
+            while(!isPalindrome(numb)) {
+                reversed = reverse(numb);
+                numb+=reversed;
+                iter++;
+            }
+            System.out.println(numb + " " + iter);
+            iter=0;
+        }
+
+    }
+
+    public static int reverse(int numb) {
+        int reversed;
+        String sNumb, sReversed;
+        sNumb = String.valueOf(numb);
+        char[] cNumb = sNumb.toCharArray();
+        char[] cReversed = new char[cNumb.length];
+        if(cNumb[cNumb.length-1]==0) cNumb[cNumb.length-1] = '?';
+        for(int i=0;i<cNumb.length;i++) {
+            if(cNumb[cNumb.length-1]!='?')
+            cReversed[i] = cNumb[cNumb.length - 1 - i];
+        }
+
+        sReversed = String.valueOf(cReversed);
+        reversed = Integer.parseInt(sReversed);
+        return reversed;
+        }
+
+
+    public static boolean isPalindrome(int numb) {
+        String snumb = String.valueOf(numb);
+        char[] charnumb = snumb.toCharArray();
+        if(snumb.length()==1) return true;
+        for(int i=0;i<(snumb.length()/2);i++) {
+                if(charnumb[i]!=charnumb[charnumb.length-1-i]) return false;
+            }
+        return true;
+    }
+}

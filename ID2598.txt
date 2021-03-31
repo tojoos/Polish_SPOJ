@@ -1,0 +1,18 @@
+Kabalistyczny zapis daty ID 2598
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int sum = 0;
+        int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 10, 20,
+                30, 40, 50, 60, 70, 80, 90, 100, 0, 200, 0, 300, 400, 500};
+        String txt = sc.nextLine();
+        char[] charTxt = txt.toCharArray();
+        for (int i = 0; i < txt.length(); i++)
+            sum += values[charTxt[i] - 97];
+        System.out.println(sum);
+    }
+}

@@ -1,0 +1,26 @@
+Sumy wielokrotne ID 1909
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        long sum=0, whole_sum=0;
+        String line;
+        while(scanner.hasNextLine()) {
+            line = scanner.nextLine();
+            String[] tab = line.split(" ");
+            for(int i=0;i<tab.length;i++) {
+                    sum += Integer.parseInt(tab[i]);
+            }
+            System.out.println(sum);
+            whole_sum += sum;
+            sum = 0;
+
+
+        }
+        System.out.println(whole_sum);
+        scanner.close();
+    }
+}

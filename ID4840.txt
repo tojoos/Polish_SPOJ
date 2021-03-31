@@ -1,0 +1,40 @@
+Szyfr Gronsfleda ID 4840
+
+import java.util.Scanner;
+
+ public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            String txt,command,key;
+            command = scanner.nextLine();
+            key = scanner.nextLine();
+            txt = scanner.nextLine();
+            char[] charKey = key.toCharArray();
+            char[] charTxt = txt.toCharArray();
+            if(command.equals("SZYFRUJ")) {
+                for(int i=0;i<charTxt.length;i++) {
+                        if(i==charKey.length)
+                            charKey = elong(charKey);
+                        System.out.print((char)(charTxt[i]+Integer.parseInt(String.valueOf(charKey[i]))));
+
+                }
+            }
+            else {
+                    for(int i=0;i<charTxt.length;i++) {
+                        if(i==charKey.length)
+                            charKey = elong(charKey);
+                        System.out.print((char)(charTxt[i]-Integer.parseInt(String.valueOf(charKey[i]))));
+
+                    }
+            }
+        }
+
+    public static char[] elong(char[] charKey) {
+        char[] returnCharKey = new char [charKey.length*2];
+        for(int i=0;i<charKey.length;i++) {
+            returnCharKey[i] = charKey[i];
+        }
+        for(int i=0;i<charKey.length;i++) {
+            returnCharKey[charKey.length + i] = charKey[i];
+        }
+        return returnCharKey;
+    }

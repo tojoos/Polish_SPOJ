@@ -1,0 +1,27 @@
+Reszta z dzielenia ID 14779
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int n;
+        long a,b,numb=0;
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        for(int i=0;i<n;i++) {
+            a = scanner.nextLong();
+            b = scanner.nextLong();
+            if(a>=0 && b>0)
+                numb = a%b;
+            else if(a>=0 && b<0)
+                numb = a%b;
+            else if(a<0 && b>0)
+                numb = (long) (a - Math.floor((double)a/b) * b);
+            else if(a<0 && b<0)
+                numb = (long) (a - Math.ceil(((double)a/b)) * b);
+            System.out.println(numb);
+        }
+
+    }
+}
